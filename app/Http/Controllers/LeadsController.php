@@ -11,7 +11,6 @@ class LeadsController extends Controller
     private $menu;
     public function __construct()
     {
-        $this->middleware('auth');
         $menu = Category::where('type', 0)->where('parent_id',null)->get();
         for ($i=0; $i < count($menu); $i++) { 
             $menu[$i]->submenu = Category::where('parent_id', $menu[$i]->id)->get();

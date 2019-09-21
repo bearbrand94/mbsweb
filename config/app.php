@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'mbs_api'   => env('MBS_API', 'http://admin.asset-management.co.id/api'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

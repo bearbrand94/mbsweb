@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware(['MbsAuth'])->group(function () {
+Route::post('/login','LoginController@log_in')->name('login');
+Route::group(['middleware' => ['MbsAuth']], function () {
 	Route::get('/logout','LoginController@log_out')->name('logout');
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/leadsgen', 'LeadsController@index')->name('leadsgen');

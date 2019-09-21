@@ -13,7 +13,6 @@ class TipsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
         $this->menu = Category::where('type','1')->get();
     }
 

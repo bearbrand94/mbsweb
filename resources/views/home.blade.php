@@ -10,7 +10,7 @@
 @section('body')
 <div class="container">
     <div class="row">
-        <a href="#">
+        <a href="{{route('leadsgen')}}">
             <div class="col-md-4" style="margin-bottom: 30px;">
                <div class="ts-service-box-bg text-center">
                   <img src="{{ asset('images/icon-image/leadsgen.png') }}">
@@ -20,7 +20,7 @@
                </div>
             </div><!-- Col 1 end -->
         </a>
-        <a href="#">
+        <a href="{{route('branding')}}">
         <div class="col-md-4" style="margin-bottom: 30px;">
            <div class="ts-service-box-bg text-center">
               <img src="{{ asset('images/icon-image/branding.png') }}">
@@ -30,7 +30,7 @@
            </div>
         </div><!-- Col 1 end -->
         </a>
-        <a href="#">
+        <a href="{{route('tips')}}">
         <div class="col-md-4" style="margin-bottom: 30px;">
            <div class="ts-service-box-bg text-center">
               <img src="{{ asset('images/icon-image/tips.png') }}" width="72px;" height="72px;">
@@ -42,6 +42,7 @@
         </a>
     </div>
     <div class="row">
+      <a href="{{route('leadsgen')}}">
         <div class="col-md-offset-2 col-md-4" style="margin-bottom: 30px;">
            <div class="ts-service-box-bg text-center">
               <img src="{{ asset('images/icon-image/recruit.png') }}" width="72px;" height="72px;">
@@ -50,6 +51,7 @@
              </div>
            </div>
         </div><!-- Col 1 end -->
+      </a>
         <div class="col-md-4" style="margin-bottom: 30px;">
            <div class="ts-service-box-bg text-center">
               <img src="{{ asset('images/icon-image/setting.png') }}" width="72px;" height="72px;">

@@ -3,7 +3,7 @@
 @section('banner')
  <h1 class="banner-title">TIPS / FAQ</h1>
  <ol class="breadcrumb">
-    <li>Menu</li>
+    <li><a href="{{route('home')}}">Menu</a></li>
     <li>Tips</li>
  </ol>
 @endsection

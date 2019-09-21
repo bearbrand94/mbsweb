@@ -18,7 +18,7 @@
 @section('banner')
  <h1 class="banner-title">BRANDING</h1>
  <ol class="breadcrumb">
-    <li>Menu</li>
+    <li><a href="{{route('home')}}">Menu</a></li>
     <li>Branding</li>
  </ol>
 @endsection

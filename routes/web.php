@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::post('/login','LoginController@log_in')->name('login');
+Route::get('/article/{slug}/{token}')->name('shared-article');
+
 Route::group(['middleware' => ['MbsAuth']], function () {
 	Route::get('/logout','LoginController@log_out')->name('logout');
 	Route::get('/home', 'HomeController@index')->name('home');

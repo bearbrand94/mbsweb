@@ -17,10 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/leadsgen', 'LeadsController@index')->name('leadsgen');
-Route::get('/leadsgen/{slug}', 'LeadsController@article')->name('article');
-Route::get('/leadsgen/article/{slug}', 'LeadsController@article_detail')->name('article-detail');
-Route::get('/branding', 'BrandingController@index')->name('branding');
-Route::get('/tips', 'TipsController@index')->name('tips');
-Route::get('/tips/article/{slug}', 'TipsController@article')->name('tips-article');
+Route::middleware(['MbsAuth'])->group(function () {
+	Route::get('/logout','LoginController@log_out')->name('logout');
+	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/leadsgen', 'LeadsController@index')->name('leadsgen');
+	Route::get('/leadsgen/{slug}', 'LeadsController@article')->name('article');
+	Route::get('/leadsgen/article/{slug}', 'LeadsController@article_detail')->name('article-detail');
+	Route::get('/branding', 'BrandingController@index')->name('branding');
+	Route::get('/tips', 'TipsController@index')->name('tips');
+	Route::get('/tips/article/{slug}', 'TipsController@article')->name('tips-article');
+});

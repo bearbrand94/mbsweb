@@ -8,7 +8,7 @@
 
                <div class="post-content post-single">
                   <div class="post-media post-image image-angle">
-                     <img src="{{$lead->image_url}}" class="img-responsive" alt="">
+                     <img src="{{$lead->image_url}}" class="img-responsive" alt="" width="100%">
                   </div>
 
                   <div class="post-body">

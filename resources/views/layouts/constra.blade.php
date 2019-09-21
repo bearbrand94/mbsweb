@@ -78,7 +78,7 @@
 									</div>
 								</li>
 								<li class="header-get-a-quote">
-									<a class="btn btn-constra btn-secondary" href="contact.html">Log Out</a>
+									<a class="btn btn-constra btn-secondary" href="{{route('logout')}}">Log Out</a>
 								</li>
 							</ul><!-- Ul end -->
 						</div><!-- header right end -->

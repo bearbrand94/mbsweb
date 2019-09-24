@@ -1,4 +1,4 @@
-@extends('layouts.constra')
+@extends('layouts.guest-constra')
 
 @section('css')
 
@@ -27,19 +27,7 @@
 
                      <div class="tags-area clearfix">
                         <div class="post-tags pull-left">
-                           <a href="{{route('article', ['slug' => $category->slug])}}">
-                              <i class="fa fa-angle-left" style="margin-right: 5px;"></i> {{$category->name}}
-                           </a>
-                        </div>
-
-                        <div class="pull-right col-xs-12 col-md-8 text-right">
-                           <div class="form-inline">
-                             <div class="form-group" style="width: 100%;">
-                              <label>Share:</label>
-                              <input type="text" disabled name="" class="form-control" value="{{route('shared-article', ['slug' => $lead->slug, 'token' => session('auth_data')->token] )}}">
-                              <button class="btn btn-primary" onclick="link_copy()" id="btn-copy">Copy Link</button>
-                             </div>
-                          </div>
+                           <a>{{$category->name}}</a>
                         </div>
                      </div>
                      
@@ -55,10 +43,10 @@
 	                     <img alt="" src="{{asset('images/avatar/avatar1.jpg')}}" class="img-responsive">
 	                  </div>
 	                  <div class="ts-team-content-classic">
-	                     <h3 class="ts-name">{{session('auth_data')->nama_agen}}</h3>
-	                     <p class="ts-designation"><i class="fa fa-envelope" style="margin-right: 5px;"></i> {{session('auth_data')->email_agen}}</p>
-	                     <p class="ts-designation"><i class="fa fa-phone" style="margin-right: 8px;"></i> {{session('auth_data')->no_hp}}</p>
-	                     <p class="ts-description">{{session('auth_data')->nama_agen}} is a {{session('auth_data')->jabatan_agen}} on MBS Prudential Agency</p>
+	                     <h3 class="ts-name">Nama Agen</h3>
+	                     <p class="ts-designation"><i class="fa fa-envelope" style="margin-right: 5px;"></i> Email Agen</p>
+	                     <p class="ts-designation"><i class="fa fa-phone" style="margin-right: 8px;"></i> No. Handphone</p>
+	                     <p class="ts-description">[Nama Agen] is a [Jabatan] on MBS Prudential Agency</p>
 	                     <div class="team-social-icons">
 	                        <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
 	                        <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
@@ -68,7 +56,7 @@
 	               </div><!--/ Team wrapper 1 end -->
 
                   <!-- CONTACT FORM -->
-<!-- 	               <div class="comments-form border-box">
+	               <div class="comments-form border-box">
 	                  <h3 class="title-normal">Contact Me</h3>
 
 	                  <form role="form">
@@ -83,19 +71,16 @@
 	                           <div class="form-group">
 	                              <input class="form-control" name="name" id="name" placeholder="Your Name" type="text" required>
 	                           </div>
-
-   	                        <div class="col-md-12">
-   	                           <div class="form-group">
-   	                              <input class="form-control" name="email" id="email" placeholder="Your Email" type="email" required>
-   	                           </div>
-   	                        </div>
+ 	                           <div class="form-group">
+ 	                              <input class="form-control" name="email" id="email" placeholder="Your Email" type="email" required>
+ 	                           </div>
       	                     <div class="clearfix" style="margin-top: -25px;">
       	                        <button class="btn btn-primary btn-block" type="submit">Send Message</button> 
       	                     </div>
                            </div>
                         </div>
                      </form>
-                  </div> -->
+                  </div>
             </div><!-- Sidebar Col end -->
 
          </div><!-- Main row end -->
@@ -104,17 +89,4 @@
 @endsection
 
 @section('js')
-<script type="text/javascript">
-   function link_copy(){
-       var input = document.createElement('input');
-       input.setAttribute('value', "{{route('shared-article', ['slug' => $lead->slug, 'token' => session('auth_data')->token] )}}");
-       document.body.appendChild(input);
-       input.select();
-       var result = document.execCommand('copy');
-       document.body.removeChild(input);
-       tempAlert("Link Copied!",1000);
-       $('#btn-copy').html("Link Copied!").css('color', 'white').css('background-color', 'black');
-       return result;
-   }   
-</script>
 @endsection

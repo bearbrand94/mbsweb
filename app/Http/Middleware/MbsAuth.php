@@ -21,26 +21,21 @@ class MbsAuth
     {
         $jar = session('jar');
         $client = new Client(['cookies' => $jar]);
+
+        $auth_data = session('auth_data');
         try {
-            $res = $client->request('POST', config('app.mbs_api')."/login", [
-                'auth'    => [session('auth_username'), md5(session('auth_password'))],
+            $res = $client->request('POST', config('app.mbs_api')."/detailAgen", [
                 'timeout' => 30,
                 'form_params' => [
-                    'nama'  => "mbs_website",
-                    'model' => "website",
-                    'imei'  => "14056"
+                    'token'  => $auth_data->token,
+                    'id' => $auth_data->kode_agen,
                 ]
             ]);
             // return $res;
             $body = json_decode($res->getBody());
-            if($body->Status == "true"){ // 200 = Success
-                $user_info = $body->Message->Data; // { "type": "User", ..
-                session(['auth_data'=>$user_info]);
-                // return redirect()->intended('home');
-                // print_r($user_info);
+            if($body->Status == "true"){
             }
             else{
-                // return "Login Invalid";
                 return redirect()->intended('login');
             }
         } catch (RequestException $e) {

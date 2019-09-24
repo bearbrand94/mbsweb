@@ -3,7 +3,7 @@
 @section('banner')
  <h1 class="banner-title">MENU</h1>
  <ol class="breadcrumb">
-    <li>Selamat Datang, Andy Sutanto, S.Kom RFP</li>
+    <li>Selamat Datang, {{session('auth_data')->nama_agen}}</li>
  </ol>
 @endsection
 

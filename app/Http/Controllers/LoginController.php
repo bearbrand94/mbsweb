@@ -14,7 +14,6 @@ class LoginController extends Controller
 	function log_in(Request $request){
 		$jar = session('jar');
     	$client = new Client(['cookies' => $jar]);
-
     	try {
 	        $res = $client->request('POST', config('app.mbs_api')."/login", [
 	        	'auth'	  => [$request->username, md5($request->password)],
@@ -25,15 +24,16 @@ class LoginController extends Controller
 			    	'imei'  => "14056"
 			    ]
 			]);
-			// return $res;
 			$body = json_decode($res->getBody());
 			if($body->Status == "true"){ // 200 = Success
 				$user_info = $body->Message->Data; // { "type": "User", ..
-				session(['auth_data'=>$user_info, 'auth_username'=>$request->username, 'auth_password'=>$request->password]);
+				session(['auth_data'=>$user_info]);
+
 				return redirect()->intended('home');
 				// print_r($user_info);
 			}
 			else{
+				// print_r($body);
 				// return "Login Invalid";
 	        	return view('auth.login');
 			}

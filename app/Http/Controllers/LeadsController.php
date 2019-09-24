@@ -23,6 +23,12 @@ class LeadsController extends Controller
         return view('leadsgen-menu')->with('menu', $this->menu);
     }
 
+    public function shared_article($slug, $token){
+        $lead = Lead::where('slug', $slug)->first();
+        $category = Category::find($lead->category_id);
+        return view('shared-article')->with('lead', $lead)->with('category', $category);
+    }
+
     public function article($slug){
         $header = Category::where('slug', $slug)->first();
         $leads = Category::where('categories.slug',$slug)->join('leads', 'leads.category_id', '=', 'categories.id')->select('leads.*', 'categories.name as category_name')->get();

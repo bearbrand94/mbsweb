@@ -11,7 +11,7 @@ class LeadsController extends Controller
     private $menu;
     public function __construct()
     {
-        $menu = Category::where('type', 0)->where('parent_id',null)->get();
+        $menu = Category::where('type', 'LEADS')->where('parent_id',null)->get();
         for ($i=0; $i < count($menu); $i++) { 
             $menu[$i]->submenu = Category::where('parent_id', $menu[$i]->id)->get();
         }
@@ -31,7 +31,7 @@ class LeadsController extends Controller
 
     public function article($slug){
         $header = Category::where('slug', $slug)->first();
-        $leads = Category::where('categories.slug',$slug)->join('leads', 'leads.category_id', '=', 'categories.id')->select('leads.*', 'categories.name as category_name')->get();
+        $leads = Category::where('cms_categories.slug',$slug)->join('cms_posts as leads', 'leads.category_id', '=', 'cms_categories.id')->select('leads.*', 'cms_categories.name as category_name')->get();
     	return view('leadsgen')->with('menu', $this->menu)->with('header', $header)->with('leads', $leads);
     }
 

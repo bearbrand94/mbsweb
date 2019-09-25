@@ -29,8 +29,8 @@
             @foreach($branding as $b)
            <div class="col-md-4 col-sm-6 col-xs-12 commercial isotope-item">
               <div class="isotope-img-container">
-                 <a class="gallery-popup" href="{{$b->image_url}}">
-                    <img class="img-responsive" src="{{$b->image_url}}" alt="">
+                 <a class="gallery-popup" href="{{$b->media_url}}">
+                    <img class="img-responsive" src="{{$b->media_url}}" alt="">
                     <span class="gallery-icon"><i class="fa fa-search"></i></span>
                  </a>
                  <div class="project-item-info">

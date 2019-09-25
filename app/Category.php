@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+	protected $table = "cms_categories";
+
 	public function setName($value)
 	{
 	    $this->attributes['name'] = $value;

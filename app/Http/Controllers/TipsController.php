@@ -13,7 +13,7 @@ class TipsController extends Controller
 
     public function __construct()
     {
-        $this->menu = Category::where('type','1')->get();
+        $this->menu = Category::where('type','TIPS')->get();
     }
 
     public function index()
@@ -22,7 +22,7 @@ class TipsController extends Controller
     }
     public function article($slug)
     {
-    	$tips = Category::where('slug',$slug)->join('tips', 'tips.category_id', '=', 'categories.id')->get();
+    	$tips = Category::where('cms_categories.slug',$slug)->join('cms_posts as tips', 'tips.category_id', '=', 'cms_categories.id')->get();
         return view('tips-article')->with('menu', $this->menu)->with('tips', $tips);
     }
 }

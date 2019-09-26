@@ -23,6 +23,9 @@ class MbsAuth
         $client = new Client(['cookies' => $jar]);
 
         $auth_data = session('auth_data');
+        if(!isset($auth_data)){
+            return redirect()->intended('login');
+        }
         try {
             $res = $client->request('POST', config('app.mbs_api')."/detailAgen", [
                 'timeout' => 30,
@@ -39,7 +42,7 @@ class MbsAuth
                 return redirect()->intended('login');
             }
         } catch (RequestException $e) {
-            // return redirect()->intended('login');
+            return redirect()->intended('login');
         }
         return $next($request);
     }

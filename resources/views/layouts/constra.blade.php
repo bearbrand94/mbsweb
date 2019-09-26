@@ -78,7 +78,7 @@
 										<li><a href="{{route('branding')}}">Branding</a></li>
 										<li><a href="{{route('tips')}}">Tips</a></li>
 										<li><a href="{{route('leadsgen')}}">Recruiting</a></li>
-										<li><a href="contact.html">My Account</a></li>
+										<!-- <li><a href="contact.html">My Account</a></li> -->
 
 									</ul>
 									<!--/ Nav ul end -->

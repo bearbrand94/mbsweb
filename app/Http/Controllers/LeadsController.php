@@ -31,7 +31,7 @@ class LeadsController extends Controller
 
     public function article($slug){
         $header = Category::where('slug', $slug)->first();
-        $leads = Category::where('cms_categories.slug',$slug)->join('cms_posts as leads', 'leads.category_id', '=', 'cms_categories.id')->select('leads.*', 'cms_categories.name as category_name')->paginate(5);
+        $leads = Category::where('cms_categories.slug',$slug)->join('cms_posts as leads', 'leads.category_id', '=', 'cms_categories.id')->select('leads.*', 'cms_categories.name as category_name')->paginate(3);
     	return view('leadsgen')->with('menu', $this->menu)->with('header', $header)->with('leads', $leads);
     }
 

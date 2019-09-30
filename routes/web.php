@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::post('/login','LoginController@log_in')->name('login');
 Route::get('/article/{slug}/{token}', 'LeadsController@shared_article')->name('shared-article');

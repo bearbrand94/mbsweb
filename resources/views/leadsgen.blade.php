@@ -53,45 +53,52 @@
         </div>
 
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-          @foreach($leads as $lead)
-          <div class="post">
-            <div class="post-body">
-              <div class="entry-header">
-                <h2 class="entry-title">
-                  <a href="{{route('article-detail', ['slug' => $lead->slug])}}">{{$lead->title}}</a>
-                </h2>
-                <div class="post-meta">
-                  <span class="post-author">
-                    <i class="fa fa-bookmark"></i><a href="#"> {{$lead->category_name}}</a>
-                  </span>
-                  <span class="post-cat">
-                    <i class="fa fa-folder-open"></i><a href="#"> On-site representation</a>
-                  </span>
-                  <span class="post-comment"><i class="fa fa-calendar"></i> {{date('F d, Y', strtotime($lead->created_at))}}</span>
+          @if(count($leads) > 0)
+            @foreach($leads as $lead)
+            <div class="post">
+              <div class="post-body">
+                <div class="entry-header">
+                  <h2 class="entry-title">
+                    <a href="{{route('article-detail', ['slug' => $lead->slug])}}">{{$lead->title}}</a>
+                  </h2>
+                  <div class="post-meta">
+                    <span class="post-author">
+                      <i class="fa fa-bookmark"></i><a href="#"> {{$lead->category_name}}</a>
+                    </span>
+                    <span class="post-cat">
+                      <i class="fa fa-folder-open"></i><a href="#"> On-site representation</a>
+                    </span>
+                    <span class="post-comment"><i class="fa fa-calendar"></i> {{date('F d, Y', strtotime($lead->created_at))}}</span>
+                  </div>
+                </div><!-- header end -->
+
+                <div class="entry-content">
+                  <p>{{substr($lead->content, 0, 300)}}...</p>
                 </div>
-              </div><!-- header end -->
 
-              <div class="entry-content">
-                <p>{{substr($lead->content, 0, 300)}}...</p>
-              </div>
-
-              <div class="post-footer">
-                <a href="{{route('article-detail', ['slug' => $lead->slug])}}" class="btn btn-primary">Read More</a>
-              </div>
-            </div><!-- post-body end -->
-          </div><!-- 1st post end -->
-          @endforeach
+                <div class="post-footer">
+                  <a href="{{route('article-detail', ['slug' => $lead->slug])}}" class="btn btn-primary">Read More</a>
+                </div>
+              </div><!-- post-body end -->
+            </div><!-- 1st post end -->
+            @endforeach
+          @else
+            <div class="post">
+              <p class="entry-title">Tidak Ada Artikel Untuk Kategori <i>{{$header->name}}</i></p>
+            </div><!-- 1st post end -->         
+          @endif
 
           <div class="paging">
-                <ul class="pagination">
-                  <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                </ul>
-              </div>
+            {{ $leads->links() }}
+<!--             <ul class="pagination">
+              <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+            </ul> -->
+          </div>
 
         </div><!-- Content Col end -->
 

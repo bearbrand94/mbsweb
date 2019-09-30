@@ -187,7 +187,8 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
 						<div class="copyright-info">
-							<span>Copyright © 2019 MBSAgency Prudential</a></span>
+							<span>Copyright © 2019 
+							Hastech Software .co</a></span>
 						</div>
 					</div>
 

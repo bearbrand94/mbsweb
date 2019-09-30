@@ -3119,13 +3119,13 @@ label {
 
 .pagination li a {
     border-radius: 0 !important;
-    margin-right: 8px;
+
     color: #7c7c7c;
 }
 
-.pagination>.active>a,
-.pagination>.active>a:hover,
-.pagination>li>a:hover {
+.pagination>.active>span,
+.pagination>.active>span:hover,
+.pagination>li>span:hover {
     color: #fff;
     background: #ffb600;
     border: 1px solid transparent;

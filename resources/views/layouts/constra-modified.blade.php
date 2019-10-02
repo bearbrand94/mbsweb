@@ -2,6 +2,14 @@
 
 @section('custom_css')
     @yield('css')
+    <style type="text/css">
+    	.ts-service-box-bg{
+    		background-color: white;
+    	}
+    	.ts-service-box-content>h4{
+    		 color: black;
+    	}
+    </style>
 @endsection
 
 @section('constra_body')
@@ -9,53 +17,31 @@
 	<div class="body-inner">
 		<!-- Header start -->
 		<header id="header" class="header-one">
+			<div class="container-fluid" style="background-color: rgb(37,37,37);">
 			<div class="container">
 				<div class="row hidden-xs">
-					<div class="logo-area clearfix">
+					<div class="clearfix" style="padding-top: 10px; padding-bottom: 10px;">
 						<div class="logo col-xs-12 col-md-3">
 							<a href="index.html">
-								<img src="{{ asset('images/logo.png')}}" alt="" height="60px;">
+								<img src="{{ asset('images/logo.png')}}" alt="" height="70px;">
 							</a>
 						</div><!-- logo end -->
 
-						<div class="col-xs-12 col-md-9 header-right">
+						<div class="col-xs-12 col-md-9 header-right" style="margin-top: 10px;">
 							<ul class="top-info-box">
-								<li>
-									<div class="info-box">
-										<div class="info-box-content">
-											<p class="info-box-title">Mobile</p>
-											<p class="info-box-subtitle">{{session('auth_data')->no_hp}}</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="info-box">
-										<div class="info-box-content">
-											<p class="info-box-title">Email</p>
-											<p class="info-box-subtitle">{{session('auth_data')->email_agen}}</p>
-										</div>
-									</div>
-								</li>
-								<li class="last">
-									<div class="info-box last">
-										<div class="info-box-content">
-											<p class="info-box-title">Title</p>
-											<p class="info-box-subtitle">{{session('auth_data')->jabatan_agen}}</p>
-										</div>
-									</div>
-								</li>
 								<li class="header-get-a-quote">
 									<a class="btn btn-constra btn-secondary" href="{{route('logout')}}">Log Out</a>
 								</li>
 							</ul><!-- Ul end -->
 						</div><!-- header right end -->
 					</div><!-- logo area end -->
-
 				</div><!-- Row end -->
 			</div><!-- Container end -->
+			</div>
 
-			<nav class="site-navigation navigation navdown">
+			<nav class="site-navigation navigation navdown visible-xs">
 				<div class="container">
+
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="site-nav-inner pull-left">
@@ -67,30 +53,28 @@
 								</button>
 
 								<div class="collapse navbar-collapse navbar-responsive-collapse">
-
 									<ul class="nav navbar-nav">
-										<li class="navbar-logo" style="display: none;">
-											<!-- <img src="{{ asset('images/logo.png')}}" alt=""> -->
-										</li>
-										
+
 										<li><a href="{{route('home')}}">Home</a></li>
 										<li><a href="{{route('leadsgen')}}">Leads Gen</a></li>
 										<li><a href="{{route('branding')}}">Branding</a></li>
 										<li><a href="{{route('tips')}}">Tips</a></li>
 										<li><a href="{{route('leadsgen')}}">Recruiting</a></li>
 										<!-- <li><a href="contact.html">My Account</a></li> -->
-
 									</ul>
 									<!--/ Nav ul end -->
 								</div>
+
+							<div class="logo" style="padding-right: 30px;">
+								<img src="{{ asset('images/logo.png')}}" alt="" height="60px;">
+							</div>
 								<!--/ Collapse end -->
-
 							</div><!-- Site Navbar inner end -->
-
 						</div>
 						<!--/ Col end -->
 					</div>
 					<!--/ Row end -->
+
 
 					<div class="nav-search">
 						<span id="search"><i class="fa fa-search"></i></span>
@@ -102,13 +86,12 @@
 					</div><!-- Site search end -->
 				</div>
 				<!--/ Container end -->
-
 			</nav>
 			<!--/ Navigation end -->
 		</header>
 		<!--/ Header end -->
 		@hasSection('banner')
-	    <div id="banner-area" class="banner-area" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url({{ asset('images/banner/banner4.png') }})">
+	    <div id="banner-area" class="banner-area" style="color: black;">
 	      	<div class="banner-text">
 	         <div class="container">
 	            <div class="row">
@@ -142,6 +125,7 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-12 footer-widget footer-about">
 						<h3 class="widget-title">About Us</h3>
+						<img class="footer-logo" src="images/footer-logo.png" alt="" />
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
 							labore et dolore magna aliqua.</p>
 						<div class="footer-social">

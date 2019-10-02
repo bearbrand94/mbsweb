@@ -23,32 +23,33 @@
 								<li>
 									<div class="info-box">
 										<div class="info-box-content">
-											<p class="info-box-title">Mobile</p>
-											<p class="info-box-subtitle">{{session('auth_data')->no_hp}}</p>
+											<p class="info-box-title">Call Us</p>
+											<p class="info-box-subtitle">(+0) 123-456-7890</p>
 										</div>
 									</div>
 								</li>
 								<li>
 									<div class="info-box">
 										<div class="info-box-content">
-											<p class="info-box-title">Email</p>
-											<p class="info-box-subtitle">{{session('auth_data')->email_agen}}</p>
+											<p class="info-box-title">Email Us</p>
+											<p class="info-box-subtitle">office@mbs.com</p>
 										</div>
 									</div>
 								</li>
 								<li class="last">
 									<div class="info-box last">
 										<div class="info-box-content">
-											<p class="info-box-title">Title</p>
-											<p class="info-box-subtitle">{{session('auth_data')->jabatan_agen}}</p>
+											<p class="info-box-title">Global Certificate</p>
+											<p class="info-box-subtitle">ISO 9001:2017</p>
 										</div>
 									</div>
 								</li>
 								<li class="header-get-a-quote">
 									<a class="btn btn-constra btn-secondary" href="{{route('logout')}}">Log Out</a>
 								</li>
-							</ul><!-- Ul end -->
-						</div><!-- header right end -->
+							</ul>
+						</div>
+						<!-- header right end -->
 					</div><!-- logo area end -->
 
 				</div><!-- Row end -->
@@ -69,8 +70,8 @@
 								<div class="collapse navbar-collapse navbar-responsive-collapse">
 
 									<ul class="nav navbar-nav">
-										<li class="navbar-logo" style="display: none;">
-											<!-- <img src="{{ asset('images/logo.png')}}" alt=""> -->
+										<li class="navbar-logo">
+											<img src="{{ asset('images/logo.png')}}" alt="" height="50px;">
 										</li>
 										
 										<li><a href="{{route('home')}}">Home</a></li>
@@ -92,8 +93,8 @@
 					</div>
 					<!--/ Row end -->
 
-					<div class="nav-search">
-						<span id="search"><i class="fa fa-search"></i></span>
+					<div class="nav-search" style="margin-top: 0px;">
+						<a class="btn btn-constra btn-secondary" href="{{route('logout')}}" style="margin-top: 0px;">Log Out</a>
 					</div><!-- Search end -->
 
 					<div class="search-block" style="display: none;">
@@ -142,6 +143,7 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-12 footer-widget footer-about">
 						<h3 class="widget-title">About Us</h3>
+						<img class="footer-logo" src="images/footer-logo.png" alt="" />
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
 							labore et dolore magna aliqua.</p>
 						<div class="footer-social">

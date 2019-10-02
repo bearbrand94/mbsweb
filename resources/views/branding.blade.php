@@ -34,8 +34,8 @@
                     <span class="gallery-icon"><i class="fa fa-search"></i></span>
                  </a>
                  <div class="project-item-info">
-                    <div class="project-item-info-content" onclick="alert('A')">
-                      <span class="project-cat">Download</span>
+                    <div class="project-item-info-content">
+                      <a class="project-cat" href="{{route('branding-download')}}?id={{$b->id}}">Download</a>
                     </div>
                  </div>
               </div>

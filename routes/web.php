@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
+
 Route::post('/login','LoginController@log_in')->name('login');
 Route::get('/article/{slug}/{token}', 'LeadsController@shared_article')->name('shared-article');
 
@@ -27,6 +28,8 @@ Route::group(['middleware' => ['MbsAuth']], function () {
 	Route::get('/leadsgen/{slug}', 'LeadsController@article')->name('article');
 	Route::get('/leadsgen/article/{slug}', 'LeadsController@article_detail')->name('article-detail');
 	Route::get('/branding', 'BrandingController@index')->name('branding');
+	Route::get('/branding/download', 'BrandingController@download')->name('branding-download');
 	Route::get('/tips', 'TipsController@index')->name('tips');
 	Route::get('/tips/article/{slug}', 'TipsController@article')->name('tips-article');
+
 });

@@ -26,6 +26,7 @@ class LoginController extends Controller
 			]);
 			$body = json_decode($res->getBody());
 			if($body->Status == "true"){ // 200 = Success
+				// Auth::login($request->username, TRUE);
 				$user_info = $body->Message->Data; // { "type": "User", ..
 				session(['auth_data'=>$user_info]);
 
@@ -48,6 +49,6 @@ class LoginController extends Controller
 		// $client = new Client(['cookies' => $jar]);
   //       $res = $client->request('POST', config('app.api_url')."/logout");
 		session()->flush();
-		return redirect()->intended('login');
+		return redirect()->to('login');
 	}
 }

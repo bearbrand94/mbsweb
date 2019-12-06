@@ -12,7 +12,7 @@
 <div class="container">
   @foreach($menu as $key => $m)
     @component('menu-button', [
-      'a_url'     => route('article', ['slug' => $m->slug]),
+      'a_url'     => route('leadsgen-article', ['slug' => $m->slug]),
       'title'     => $m->name,
       'image_url' => $m->image_url ? $m->image_url : null,
     ])

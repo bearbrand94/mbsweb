@@ -61,7 +61,7 @@
 
                      <div class="tags-area clearfix">
                         <div class="post-tags pull-left">
-                           <a href="{{route('article', ['slug' => $category->slug])}}">
+                           <a href="{{route($type.'-article', ['slug' => $category->slug])}}">
                               <i class="fa fa-angle-left" style="margin-right: 5px;"></i> {{$category->name}}
                            </a>
                         </div>

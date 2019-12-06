@@ -32,12 +32,12 @@ class RecruitingController extends Controller
     public function article($slug){
         $header = Category::where('slug', $slug)->first();
         $posts = Category::where('cms_categories.slug',$slug)->join('cms_posts as posts', 'posts.category_id', '=', 'cms_categories.id')->select('posts.*', 'cms_categories.name as category_name')->paginate(3);
-    	return view('recruiting.list')->with('menu', $this->menu)->with('header', $header)->with('posts', $posts);
+    	return view('leadsgen')->with('menu', $this->menu)->with('header', $header)->with('leads', $posts)->with('type', 'recruiting');
     }
 
     public function article_detail($slug){
         $post = Lead::where('slug', $slug)->first();
         $category = Category::find($post->category_id);
-        return view('recruiting.article')->with('post', $post)->with('category', $category);
+        return view('article')->with('lead', $post)->with('category', $category)->with('type', 'recruiting');
     }
 }

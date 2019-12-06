@@ -36,6 +36,16 @@
     color: #7c7c7c;
     border-color: #dadada;
   }
+  
+  .container{
+    max-width: 768px;
+    border-right: 1px solid rgb(231,231,231);
+    border-left: 1px solid rgb(231,231,231);
+  }
+  
+  section{
+    background-color: rgb(249,249,249);
+  }
 /*  .dock{
     right: 0;
     margin-top: auto;
@@ -49,8 +59,8 @@
       <div class="post-media post-image image-angle hidden-md hidden-lg hidden-xl">
          <img src="{{$lead->image_url}}" class="img-responsive" alt="" width="100%"></img>
       </div>
-      <div class="hidden-sm hidden-xs" style="margin-top: 20px;"></div>
-      <div class="container" style="max-width: 768px;">
+      <div class="container" style="background-color: white;">
+                <div class="hidden-sm hidden-xs" style="margin-top: 20px;"></div>
          <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 

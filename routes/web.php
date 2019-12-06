@@ -25,8 +25,8 @@ Route::group(['middleware' => ['MbsAuth']], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
 
 	Route::get('/leadsgen', 'LeadsController@index')->name('leadsgen');
-	Route::get('/leadsgen/{slug}', 'LeadsController@article')->name('article');
-	Route::get('/leadsgen/article/{slug}', 'LeadsController@article_detail')->name('article-detail');
+	Route::get('/leadsgen/{slug}', 'LeadsController@article')->name('leadsgen-article');
+	Route::get('/leadsgen/article/{slug}', 'LeadsController@article_detail')->name('leadsgen-article-detail');
 
 	Route::get('/recruiting', 'RecruitingController@index')->name('recruiting');
 	Route::get('/recruiting/{slug}', 'RecruitingController@article')->name('recruiting-article');

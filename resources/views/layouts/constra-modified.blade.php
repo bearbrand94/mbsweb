@@ -54,7 +54,6 @@
 
 								<div class="collapse navbar-collapse navbar-responsive-collapse">
 									<ul class="nav navbar-nav">
-
 										<li><a href="{{route('home')}}">Home</a></li>
 										<li><a href="{{route('leadsgen')}}">Leads Gen</a></li>
 										<li><a href="{{route('branding')}}">Branding</a></li>

@@ -10,19 +10,21 @@
 
 @section('body')
 <div class="container">
-  <div class="row">
     @foreach($menu as $m)
-      <a href="{{route('tips-article', ['slug' => $m->slug])}}">
-          <div class="col-md-4" style="margin-bottom: 30px;">
-             <div class="ts-service-box-bg text-center" style="min-height: 210px;">
-                <img src="{{ $m->icon_url ? $m->icon_url : asset('images/icon-image/leadsgen.png') }}">
-                <div class="ts-service-box-content">
-                   <h4>{{$m->name}}</h4>
-               </div>
-             </div>
-          </div><!-- Col 1 end -->
-      </a>
+      @component('menu-button', [
+        'a_url'     => route('tips-article', ['slug' => $m->slug]),
+        'title'     => $m->name,
+        'image_url' => $m->image_url ? $m->image_url : null,
+      ])
+      @endcomponent
     @endforeach
-  </div>
 </div><!-- Container end -->
+@endsection
+
+@section('js')
+<script type="text/javascript">
+  $(function() {
+    $('.menu-button').matchHeight();
+  });    
+</script>
 @endsection

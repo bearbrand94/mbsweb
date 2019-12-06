@@ -17,7 +17,8 @@ jQuery(function($){
 
 				$el.isotope({
 					itemSelector: '.isotope-item',
-					layoutMode: mode,
+					layoutMode: 'masonry',
+
 					animationOptions: {
 						duration: 400,
 						queue: false

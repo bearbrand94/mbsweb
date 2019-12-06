@@ -26,11 +26,11 @@ jQuery(function ($) {
 
 	$(window).on('scroll', function () {
 		if ($(window).scrollTop() > 70) {
-			$('.navdown, .header-two').addClass('navbar-fixed');
+			$('.navdown, .header-two').addClass('navbar-fixed-top');
 			$('.navbar-logo').show();
 			// alert("A");
 		} else {
-			$('.navdown, .header-two').removeClass('navbar-fixed');
+			$('.navdown, .header-two').removeClass('navbar-fixed-top');
 			$('.navbar-logo').hide();
 		}
 	});

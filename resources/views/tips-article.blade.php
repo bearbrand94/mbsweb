@@ -31,21 +31,25 @@
             <div class="col-md-9">
                <!-- <h3 class="border-title border-left">Construction general</h3> -->
                <div class="panel-group panel-classic" id="tips-group1">
-                @foreach($tips as $cnt => $t)
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                         <h4 class="panel-title"> 
-                           <a data-toggle="collapse" class="{{$cnt == 0 ? '' : 'collapsed'}}" data-parent="#tips-group1" href="#collapse{{$t->id}}">
-                           {{$t->title}}</a> 
-                         </h4>
-                      </div>
-                      <div id="collapse{{$t->id}}" class="panel-collapse collapse {{$cnt == 0 ? 'in' : ''}}">
-                           <div class="panel-body">
-                              {!!$t->content!!}
+                @if(count($tips) > 0)
+                  @foreach($tips as $cnt => $t)
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           <h4 class="panel-title"> 
+                             <a data-toggle="collapse" class="{{$cnt == 0 ? '' : 'collapsed'}}" data-parent="#tips-group1" href="#collapse{{$t->id}}">
+                             {{$t->title}}</a> 
+                           </h4>
                         </div>
-                      </div>
-                  </div><!--/ Panel 1 end-->
-                @endforeach
+                        <div id="collapse{{$t->id}}" class="panel-collapse collapse {{$cnt == 0 ? 'in' : ''}}">
+                             <div class="panel-body">
+                                {!!$t->content!!}
+                          </div>
+                        </div>
+                    </div><!--/ Panel 1 end-->
+                  @endforeach
+                @else
+                  <p class="entry-title">Tidak Ada Artikel Untuk Kategori ini</p>
+                @endif
                </div><!-- Accordion end -->
             </div><!-- Col end -->  
             <div class="hidden-md hidden-lg col-lg-3 col-md-3 col-sm-12">

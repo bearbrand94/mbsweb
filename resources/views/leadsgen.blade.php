@@ -6,6 +6,24 @@
     padding-top: 0px;
     margin-top: -10px;
   }
+  .Aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Aligner-item {
+    max-width: 50%;
+  }
+
+  .Aligner-item--top {
+    align-self: flex-start;
+  }
+
+  .Aligner-item--bottom {
+    align-self: flex-end;
+  }
+.link:hover { color: #00FF00; } /* CSS link hover (green) */
 </style>
 @endsection
 @section('banner')
@@ -25,7 +43,7 @@
 
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 
-          <div class="sidebar sidebar-left">
+          <div class="sidebar sidebar-left hidden-xs hidden-sm">
             <div class="widget">
                <h3 class="widget-title">Categories</h3>
                <ul class="nav nav-tabs nav-stacked">
@@ -55,32 +73,28 @@
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
           @if(count($leads) > 0)
             @foreach($leads as $lead)
-            <div class="post">
-              <div class="post-body">
-                <div class="entry-header">
-                  <h2 class="entry-title">
-                    <a href="{{route('article-detail', ['slug' => $lead->slug])}}">{{$lead->title}}</a>
-                  </h2>
-                  <div class="post-meta">
-                    <span class="post-author">
-                      <i class="fa fa-bookmark"></i><a href="#"> {{$lead->category_name}}</a>
-                    </span>
-                    <span class="post-cat">
-                      <i class="fa fa-folder-open"></i><a href="#"> On-site representation</a>
-                    </span>
-                    <span class="post-comment"><i class="fa fa-calendar"></i> {{date('F d, Y', strtotime($lead->created_at))}}</span>
-                  </div>
-                </div><!-- header end -->
-
-                <div class="entry-content">
-                  <p>{{substr($lead->content, 0, 300)}}...</p>
-                </div>
-
-                <div class="post-footer">
-                  <a href="{{route('article-detail', ['slug' => $lead->slug])}}" class="btn btn-primary">Read More</a>
-                </div>
-              </div><!-- post-body end -->
-            </div><!-- 1st post end -->
+            <a href="{{route('article-detail', ['slug' => $lead->slug])}}">
+            <div class="row Aligner">
+              <div class="col-xs-3">
+                <img src='<?php 
+                  $path1 = "$lead->image_url";
+                  $path2 = "https://via.placeholder.com/150";
+                  echo file_exists($path1) ? $path1 : $path2; 
+                ?>' style="height: 150px; width: 150px;" class="hidden-xs">
+                <img src='<?php 
+                  $path1 = "$lead->image_url";
+                  $path2 = "https://via.placeholder.com/75";
+                  echo file_exists($path1) ? $path1 : $path2; 
+                ?>' style="height: 75px; width: 75px;" class="hidden-sm hidden-md hidden-lg hidden-xl">
+              </div>
+              <div class="col-xs-9">
+                <p style="font-size: 20px; font-weight: 800">
+                  {{$lead->title}}
+                </p>
+              </div>
+            </div>
+            </a>
+            <hr>
             @endforeach
           @else
             <div class="post">
@@ -105,4 +119,5 @@
       </div><!-- Main row end -->
 
     </div><!-- Container end -->
+
 @endsection

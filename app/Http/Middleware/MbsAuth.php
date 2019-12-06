@@ -31,18 +31,19 @@ class MbsAuth
                 'timeout' => 30,
                 'form_params' => [
                     'token'  => $auth_data->token,
-                    'id' => $auth_data->kode_agen,
+                    'id' => md5($auth_data->kode_agen),
                 ]
             ]);
-            // return $res;
+            
             $body = json_decode($res->getBody());
-            if($body->Status == "true"){
-            }
-            else{
-                return redirect()->intended('login');
+            // print_r($body);
+            if($body->Status == "false"){
+                // return "false";
+                return redirect()->intended('login')->withInput()->withErrors(['Login Server Error.']);
             }
         } catch (RequestException $e) {
-            return redirect()->intended('login');
+            // return "error";
+            return redirect()->intended('login')->withInput()->withErrors(['Login Server Error.']);
         }
         return $next($request);
     }

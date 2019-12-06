@@ -11,22 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (Request $request) {
+    return view('auth.login');
 });
-
 Auth::routes(['register' => false]);
 
 
 Route::post('/login','LoginController@log_in')->name('login');
-Route::get('/article/{slug}/{token}', 'LeadsController@shared_article')->name('shared-article');
+Route::get('/article/{slug}/{id}', 'LeadsController@shared_article')->name('shared-article');
 
 Route::group(['middleware' => ['MbsAuth']], function () {
 	Route::get('/logout','LoginController@log_out')->name('logout');
 	Route::get('/home', 'HomeController@index')->name('home');
+
 	Route::get('/leadsgen', 'LeadsController@index')->name('leadsgen');
 	Route::get('/leadsgen/{slug}', 'LeadsController@article')->name('article');
 	Route::get('/leadsgen/article/{slug}', 'LeadsController@article_detail')->name('article-detail');
+
+	Route::get('/recruiting', 'RecruitingController@index')->name('recruiting');
+	Route::get('/recruiting/{slug}', 'RecruitingController@article')->name('recruiting-article');
+	Route::get('/recruiting/article/{slug}', 'RecruitingController@article_detail')->name('recruiting-article-detail');
+
 	Route::get('/branding', 'BrandingController@index')->name('branding');
 	Route::get('/branding/download', 'BrandingController@download')->name('branding-download');
 	Route::get('/tips', 'TipsController@index')->name('tips');

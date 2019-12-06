@@ -1,24 +1,24 @@
 @extends('layouts.master')
 
 @section('custom_css')
+
     @yield('css')
 @endsection
 
 @section('constra_body')
 <body>
 	<div class="body-inner">
-		<!-- Header start -->
 		<header id="header" class="header-one">
 			<div class="container">
 				<div class="row hidden-xs">
 					<div class="logo-area clearfix">
-						<div class="logo col-xs-12 col-md-3">
-							<a href="index.html">
-								<img src="{{ asset('images/logo.png')}}" alt="" height="60px;">
+						<div class="logo col-xs-12 col-sm-2 col-md-3">
+							<a href="{{route('home')}}">
+								<img src="{{ asset('images/logocompact.png')}}" alt="" height="50px">
 							</a>
 						</div><!-- logo end -->
 
-						<div class="col-xs-12 col-md-9 header-right">
+						<div class="col-xs-12 col-sm-10 col-md-9">
 							<ul class="top-info-box">
 								<li>
 									<div class="info-box">
@@ -40,7 +40,7 @@
 									<div class="info-box last">
 										<div class="info-box-content">
 											<p class="info-box-title">Title</p>
-											<p class="info-box-subtitle">{{session('auth_data')->jabatan_agen}}</p>
+											<p class="info-box-subtitle">Financial Consultant</p>
 										</div>
 									</div>
 								</li>
@@ -54,32 +54,35 @@
 				</div><!-- Row end -->
 			</div><!-- Container end -->
 
-			<nav class="site-navigation navigation navdown">
+			<nav class="site-navigation navigation navdown nav">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="site-nav-inner pull-left">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+							<div class="site-nav-inner pull-left ">
+								<button type="button" class="navbar-toggle pull-left" onclick="window.history.back();"style="background-color: rgba(0, 0, 0, 0); color: white; padding: 0px; margin: 0px; padding-top: 10px; font-size: 2.5rem;">
+									<span class="sr-only">Back</span>
+									<span class="fa fa-arrow-left"></span>
+								</button>
+								<button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".navbar-collapse">
 									<span class="sr-only">Toggle navigation</span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
 
-								<div class="collapse navbar-collapse navbar-responsive-collapse">
-
-									<ul class="nav navbar-nav">
-										<li class="navbar-logo" style="display: none;">
-											<!-- <img src="{{ asset('images/logo.png')}}" alt=""> -->
+								<div class="collapse navbar-collapse navbar-responsive-collapse" style="padding-right: 0px;">
+									<ul class="nav navbar-nav text-center" style="margin: 0px;">
+										<li class="navbar-logo hidden-sm hidden-md hidden-lg hidden-xl">
+											<a href="{{route('home')}}">
+												<img src="{{ asset('images/logocompact.png')}}" alt="" style="height: 50px;"></img>
+											</a>
 										</li>
 										
 										<li><a href="{{route('home')}}">Home</a></li>
 										<li><a href="{{route('leadsgen')}}">Leads Gen</a></li>
 										<li><a href="{{route('branding')}}">Branding</a></li>
 										<li><a href="{{route('tips')}}">Tips</a></li>
-										<li><a href="{{route('leadsgen')}}">Recruiting</a></li>
-										<!-- <li><a href="contact.html">My Account</a></li> -->
-
+										<li><a href="{{route('recruiting')}}">Recruiting</a></li>
 									</ul>
 									<!--/ Nav ul end -->
 								</div>
@@ -93,7 +96,7 @@
 					<!--/ Row end -->
 
 					<div class="nav-search">
-						<span id="search"><i class="fa fa-search"></i></span>
+						<!-- <span id="search"><i class="fa fa-search"></i></span> -->
 					</div><!-- Search end -->
 
 					<div class="search-block" style="display: none;">
@@ -187,7 +190,7 @@
 					<div class="col-xs-12 col-sm-6">
 						<div class="copyright-info">
 							<span>Copyright © 2019 
-							Hastech Software .co</a></span>
+							Asset Management Indonesia</a></span>
 						</div>
 					</div>
 

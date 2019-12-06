@@ -21,53 +21,31 @@
 @section('body')
 <div class="container">
     <div class="row">
-        <a href="{{route('leadsgen')}}">
-            <div class="col-md-4" style="margin-bottom: 30px;">
-               <div class="ts-service-box-bg text-center" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('{{ asset('images/menu-icon/icon1.jpg') }}'); background-size: 100%;">
-                  <div class="ts-service-box-content">
-                     <h4>Leads Gen</h4>
-                 </div>
-               </div>
-            </div><!-- Col 1 end -->
-        </a>
-        <a href="{{route('branding')}}">
-        <div class="col-md-4" style="margin-bottom: 30px;">
-           <div class="ts-service-box-bg text-center" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('{{ asset('images/menu-icon/icon2.jpg') }}'); background-size: 100%;">
-              <div class="ts-service-box-content">
-                 <h4>Branding</h4>
-             </div>
-           </div>
-        </div><!-- Col 1 end -->
-        </a>
-        <a href="{{route('tips')}}">
-        <div class="col-md-4" style="margin-bottom: 30px;">
-           <div class="ts-service-box-bg text-center" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('{{ asset('images/menu-icon/icon3.jpg') }}'); background-size: 100%;">
-              <div class="ts-service-box-content">
-                 <h4>Tips</h4>
-             </div>
-           </div>
-        </div><!-- Col 1 end -->
-        </a>
-    </div>
-    <div class="row">
-      <a href="{{route('leadsgen')}}">
-        <div class="col-md-offset-2 col-md-4" style="margin-bottom: 30px;">
-           <div class="ts-service-box-bg text-center" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('{{ asset('images/menu-icon/icon4.jpg') }}'); background-size: 100%;">
-              <div class="ts-service-box-content">
-                 <h4>Recruiting</h4>
-             </div>
-           </div>
-        </div><!-- Col 1 end -->
-      </a>
-        <div class="col-md-4" style="margin-bottom: 30px;">
-           <div class="ts-service-box-bg text-center" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('{{ asset('images/menu-icon/icon5.jpg') }}'); background-size: 100%;">
-              <div class="ts-service-box-content">
-                 <h4>Account Setting</h4>
-             </div>
-           </div>
-        </div><!-- Col 1 end -->
-    </div>
+    @component('menu-button', [
+      'a_url'     => route('leadsgen'),
+      'title'     => 'Leads Gen',
+      'image_url' => asset('images/menu-icon/icon1.jpg')
+    ])
+    @endcomponent
+    @component('menu-button', [
+      'a_url'     => route('branding'),
+      'title'     => 'Branding',
+      'image_url' => asset('images/menu-icon/icon2.jpg')
+    ])
+    @endcomponent
+    @component('menu-button', [
+      'a_url'     => route('tips'),
+      'title'     => 'Tips',
+      'image_url' => asset('images/menu-icon/icon3.jpg')
+    ])
+    @endcomponent
+    @component('menu-button', [
+      'a_url'     => route('recruiting'),
+      'title'     => 'Recruiting',
+      'image_url' => asset('images/menu-icon/icon4.jpg')
+    ])
+    @endcomponent
 
-
+    </div>
 </div><!-- Container end -->
 @endsection

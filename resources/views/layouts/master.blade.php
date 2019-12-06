@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'CMS') }}</title>
 
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
@@ -35,11 +35,12 @@
 	<link rel="stylesheet" href="{{ asset('css/colorbox.css') }}">
 
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-
     @yield('custom_css')
 </head>
 
 @yield('constra_body')
+
+
 
 <!-- initialize jQuery Library -->
 <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
@@ -51,8 +52,9 @@
 <script type="text/javascript" src="{{ asset('js/jquery.colorbox.js') }}"></script>
 <!-- Isotope -->
 <script type="text/javascript" src="{{ asset('js/isotope.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/cells-by-row.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/ini.isotope.js') }}"></script>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
 
 <!-- Google Map API Key-->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>

@@ -90,10 +90,6 @@
 		animation:none;
 	}
 
-	.logo{
-    	text-align: center;
-    	width: 100%;
-	}
 
 	.header-right {
 		float: none;
@@ -204,7 +200,7 @@
 		border-bottom: 0;
 		padding: 10px 0;
 		display: block;
-		min-width: 350px;
+		/*min-width: 350px;*/
 	}
 	ul.navbar-nav .dropdown-menu{ float:none;position: relative; border:0; margin:0; padding:0;}
 	ul.navbar-nav .dropdown-menu li a{ color:#fff; padding-left:20px!important;}
@@ -551,9 +547,9 @@
 		color:#333;
 		border-top: 1px solid #303030 !important;
 		border-bottom: 0;
-		padding: 10px 0;
+		/*padding: 10px 0;*/
 		display: block;
-		min-width: 350px;
+		/*min-width: 300px;*/
 	}
 	ul.navbar-nav .dropdown-menu{ float:none;position: relative; border:0; margin:0; padding:0;}
 	ul.navbar-nav .dropdown-menu li a{ color:#fff; padding-left:20px!important;}

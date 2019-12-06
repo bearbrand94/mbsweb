@@ -29,14 +29,14 @@ class LoginController extends Controller
 				// Auth::login($request->username, TRUE);
 				$user_info = $body->Message->Data; // { "type": "User", ..
 				session(['auth_data'=>$user_info]);
-
+				print_r($user_info);
 				return redirect()->intended('home');
 				// print_r($user_info);
 			}
 			else{
 				// print_r($body);
-				// return "Login Invalid";
-	        	return view('auth.login');
+	        	return redirect()->back()
+           			->withInput()->withErrors(['Login Invalid']);
 			}
 		} catch (RequestException $e) {
 			return "Login Invalid";
